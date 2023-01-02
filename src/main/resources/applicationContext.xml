@@ -13,23 +13,10 @@
           class="ru.alexey.springcourse.ClassicalMusic">
     </bean>
 
-    <bean id="musicBean2"
-          class="ru.alexey.springcourse.RockMusic">
-    </bean>
-
-    <bean id="musicBean3"
-          class="ru.alexey.springcourse.RapMusic">
-    </bean>
-
     <bean id="musicPlayer"
-          class="ru.alexey.springcourse.MusicPlayer">
-        <property name="musicList">
-            <list>
-                <ref bean="musicBean"/>
-                <ref bean="musicBean2"/>
-                <ref bean="musicBean3"/>
-            </list>
-        </property>
+          class="ru.alexey.springcourse.MusicPlayer"
+            scope="prototype">
+        <property name="music" ref="musicBean"/>
 
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
